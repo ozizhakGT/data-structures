@@ -1,0 +1,22 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozizhakGT/data-structures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozizhakGT/data-structures/issues"
+  },
+  "homepage": "https://github.com/ozizhakGT/data-structures#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
