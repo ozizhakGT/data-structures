@@ -100,13 +100,49 @@
                 if (index < 0 || index > this.length) return false;
                 if (index === this.length) return !!this.push(val);
                 if (index === 0) return !!this.unshift(val);
-                    let insertNode = new blaNode(val);
-                    let priviousNode = this.get(index - 1);
-                    let currentNode = priviousNode.next;
-                    priviousNode.next = insertNode;
-                    insertNode.next = currentNode;
-                    this.length++;
+                let insertNode = new blaNode(val);
+                let priviousNode = this.get(index - 1);
+                let currentNode = priviousNode.next;
+                priviousNode.next = insertNode;
+                insertNode.next = currentNode;
+                this.length++;
                 return true;
+            }
+            remove(index) {
+                if (index < 0 || index >= this.length) return undefined;
+                if (index === 0) return this.shift();
+                if (index === this.length - 1) return this.pop();
+
+                let priviousNode = this.get(index - 1);
+                let removed = priviousNode.next;
+                priviousNode.next = removed.next;
+                this.length--;
+                return removed;
+            }
+            // reverse() {
+            //     let node = this.head;
+            //     this.head = this.tail;
+            //     this.tail = node;
+            //     let next;
+            //     let prev = null;
+            //     // debugger
+            //     for (let i = 0; i < this.length; i++) {
+            //         next = node.next;
+            //         node.next = prev
+            //         prev = node;
+            //         node = next;
+            //         console.log(list )
+            //     }
+            // }
+            reverse(pre = null, curr = this.head) {
+                debugger;
+                if (curr.next) {
+                    this.reverse(curr, curr.next)
+                } else {
+                    this.tail = this.head;
+                    this.head = curr;
+                }
+                curr.next = pre;
             }
         }
         var list = new SinglyLinkedListPush();
