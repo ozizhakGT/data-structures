@@ -27,7 +27,6 @@
                     this.head = newNode;
                     this.tail = this.head;
                 } else {
-                    debugger;
                     this.tail.next = newNode;
                     newNode.prev = this.tail;
                     this.tail = newNode;
@@ -36,11 +35,26 @@
                 return this;
             }
             pop() {
-
+                if(!this.head) return undefined;
+                let current = this.tail;
+                if(this.length === 1) {
+                    this.head = null; 
+                    this.tail = null;
+                } else {
+                this.tail = current.prev;
+                this.tail.next = null;
+                current.prev = null;
+                }
+                this.length--;
+                return current;
             }
         }
 
         let list = new DoublyLinkList;
+        list.push('one');
+        list.push('two');
+        list.push('three');
+        list.push('four');
     </script>
 </body>
 </html>
