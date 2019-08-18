@@ -48,6 +48,33 @@
                 this.length--;
                 return current;
             }
+            shift() {
+                if (this.length === 0) return undefined;
+                let oldHead = this.head;
+                if(this.length === 1) {
+                    this.head = null;
+                    this.tail = null;
+                } else {
+                this.head = oldHead.next;
+                this.head.prev = null;
+                oldHead.next = null;
+                }
+                this.length--;
+                return oldHead;
+            }
+            unshit(val) {
+                let newHead = new Node(val);
+                if(this.length === 0) {
+                    this.head = newHead;
+                    this.tail = this.head;
+                } else {
+                    this.head.prev = newHead;
+                    newHead.next = this.head;
+                    this.head = newHead;
+                }
+                this.length++
+                return this;
+            }
         }
 
         let list = new DoublyLinkList;
